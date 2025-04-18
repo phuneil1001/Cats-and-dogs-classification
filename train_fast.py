@@ -1,3 +1,25 @@
+"""
+Tập tin huấn luyện mô hình phân loại nhanh ảnh Chó và Mèo
+---------------------------------------------------------
+Mô tả:
+File này triển khai quy trình huấn luyện phiên bản tối ưu và nhẹ hơn của
+mô hình phân loại hình ảnh chó và mèo. Thiết kế để chạy nhanh và hiệu quả
+với tập dữ liệu nhỏ hơn, số epoch ít hơn và mô hình đơn giản hơn.
+
+Đặc điểm chính:
+1. Sử dụng mô hình nhẹ (model_fast.py) với ít tham số hơn so với mô hình chính
+2. Dùng tập dữ liệu rút gọn (500 ảnh train, 200 ảnh validation) để huấn luyện nhanh
+3. Binary classification trực tiếp (1 output) thay vì 2 lớp như mô hình chính
+4. Ít epoch hơn (3 thay vì 10) nhằm giảm thời gian huấn luyện
+5. Sử dụng BCEWithLogitsLoss và sigmoid phù hợp cho bài toán phân loại nhị phân
+
+Quy trình huấn luyện:
+- Mô hình được huấn luyện qua 3 epochs với dữ liệu đã rút gọn
+- Đánh giá độ chính xác trên tập validation sau mỗi epoch
+- Lưu mô hình có độ chính xác validation cao nhất
+- Đánh giá cuối cùng trên tập test khi huấn luyện hoàn tất
+"""
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
