@@ -1,0 +1,6 @@
+import torch
+
+if torch.cuda.is_available():
+    print("✅ PyTorch đã nhận GPU:", torch.cuda.get_device_name(0))
+else:
+    print("❌ PyTorch không nhận GPU (đang dùng CPU)")
