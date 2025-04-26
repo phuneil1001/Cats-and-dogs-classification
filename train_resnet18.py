@@ -10,7 +10,7 @@ import json
 
 # --- Cấu hình ---
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-EPOCHS = 30
+EPOCHS = 20
 BATCH_SIZE = 32
 LEARNING_RATE = 0.001
 DATA_DIR = './data'
@@ -84,7 +84,7 @@ def train():
         if val_acc > best_val_acc:
             best_val_acc = val_acc
             best_model_wts = copy.deepcopy(model.state_dict())
-            torch.save(model.state_dict(), 'cat_dog_resnet18.pth')
+            torch.save(model.state_dict(), 'cat_dog_resnet18_ver2.pth')
             print("💾 Đã lưu mô hình tốt nhất!")
             epochs_no_improve = 0
         else:
