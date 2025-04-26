@@ -2,6 +2,7 @@ import streamlit as st
 from predict_resnet18 import predict_image
 import tempfile
 from PIL import Image
+import os
 
 st.set_page_config(page_title="Phân loại Chó/Mèo", layout="centered")
 st.title("🐾 Ứng dụng phân loại ảnh Chó và Mèo")
@@ -26,6 +27,7 @@ if uploaded_file is not None:
             result, confidence = predict_image(tmp_path)
             st.success(f"✅ Kết quả: **{result}**")
             st.info(f"🔒 Độ tin cậy: **{confidence:.2f}%**")
+        os.remove(tmp_path)  # Xóa file tạm sau khi dùng
 
     except Exception as e:
         st.error(f"❌ Lỗi: {e}")
