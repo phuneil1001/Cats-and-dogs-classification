@@ -13,7 +13,7 @@ pinned: true
 
 🎯 **Mục tiêu**: Dự đoán ảnh bạn tải lên là **Chó 🐶** hay **Mèo 🐱** dựa trên mô hình học sâu **ResNet18**.
 
-🚀 Ứng dụng được xây dựng bằng **Streamlit + PyTorch**, triển khai trên nền tảng **Hugging Face Spaces**.
+🚀 Ứng dụng được xây dựng bằng **Streamlit + PyTorch**, triển khai trên nền tảng **Hugging Face Spaces**: https://huggingface.co/spaces/Phuneil/PhanLoaiChoMeo
 
 ---
 
