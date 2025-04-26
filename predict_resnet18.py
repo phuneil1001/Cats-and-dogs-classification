@@ -23,7 +23,7 @@ def predict_image(image_path):
 
         # Tải model ResNet18
         model = CatDogClassifier()
-        model.load_state_dict(torch.load("cat_dog_resnet18.pth", map_location=torch.device("cpu")))
+        model.load_state_dict(torch.load("cat_dog_resnet18_ver2.pth", map_location=torch.device("cpu")))
         model.eval()
 
         # Load class_to_idx

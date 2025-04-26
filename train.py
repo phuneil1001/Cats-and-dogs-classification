@@ -31,7 +31,7 @@ from dataset_prep import get_data_loaders
 
 # Cấu hình
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-EPOCHS = 10
+EPOCHS = 20
 BATCH_SIZE = 32
 LEARNING_RATE = 0.001
 DATA_DIR = './data'
@@ -104,7 +104,7 @@ def train():
         # Lưu model tốt nhất
         if val_acc > best_val_acc:
             best_val_acc = val_acc
-            torch.save(model.state_dict(), 'cat_dog_classifier.pth')
+            torch.save(model.state_dict(), 'cat_dog_classifier_new.pth')
             print(f'Model saved with validation accuracy: {val_acc:.2f}%')
 
     print("Training completed!")

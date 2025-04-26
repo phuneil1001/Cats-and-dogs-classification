@@ -10,11 +10,11 @@ import json
 
 # --- Cấu hình ---
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-EPOCHS = 20
+EPOCHS = 25
 BATCH_SIZE = 32
-LEARNING_RATE = 0.001
+LEARNING_RATE = 0.0001
 DATA_DIR = './data'
-PATIENCE = 5  # cho EarlyStopping
+PATIENCE = 7  # cho EarlyStopping
 
 def train():
     # Tải dữ liệu
