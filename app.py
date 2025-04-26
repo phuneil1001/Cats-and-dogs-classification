@@ -1,7 +1,21 @@
+"""
+Ứng dụng web phân loại ảnh Chó và Mèo sử dụng Streamlit
+--------------------------------------------------
+Ứng dụng này cung cấp giao diện web thân thiện để phân loại ảnh chó và mèo
+sử dụng mô hình ResNet18 đã được huấn luyện. Người dùng có thể tải ảnh lên,
+và ứng dụng sẽ đưa ra dự đoán kèm theo độ tin cậy của kết quả.
+
+Chức năng chính:
+- Tải lên ảnh từ máy của người dùng
+- Hiển thị ảnh đã tải lên
+- Sử dụng mô hình ResNet18 để phân loại ảnh
+- Hiển thị kết quả phân loại (Chó/Mèo) và độ tin cậy của dự đoán
+"""
 import streamlit as st
 from predict_resnet18 import predict_image
 import tempfile
 from PIL import Image
+import os
 
 st.set_page_config(page_title="Phân loại Chó/Mèo", layout="centered")
 st.title("🐾 Ứng dụng phân loại ảnh Chó và Mèo")
@@ -26,6 +40,7 @@ if uploaded_file is not None:
             result, confidence = predict_image(tmp_path)
             st.success(f"✅ Kết quả: **{result}**")
             st.info(f"🔒 Độ tin cậy: **{confidence:.2f}%**")
+        os.remove(tmp_path)  # Xóa file tạm sau khi dùng
 
     except Exception as e:
         st.error(f"❌ Lỗi: {e}")

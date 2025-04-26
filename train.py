@@ -1,3 +1,27 @@
+"""
+Tập tin huấn luyện mô hình phân loại hình ảnh mèo và chó
+--------------------------------------------------------
+Mô tả:
+File này chứa mã nguồn huấn luyện mô hình CNN đơn giản để phân loại
+hình ảnh chó và mèo với PyTorch. Mô hình được định nghĩa trong file model.py
+và dữ liệu được chuẩn bị từ module dataset_prep.py.
+
+Chức năng chính:
+1. Thiết lập cấu hình huấn luyện (device, epochs, batch size, learning rate)
+2. Tải dữ liệu huấn luyện, validation và kiểm thử
+3. Khởi tạo mô hình CNN và chuyển sang thiết bị tính toán (GPU/CPU)
+4. Huấn luyện mô hình với quá trình theo dõi loss và độ chính xác
+5. Đánh giá mô hình trên tập validation sau mỗi epoch
+6. Lưu mô hình có độ chính xác validation tốt nhất
+
+Quy trình huấn luyện:
+- Đối với mỗi epoch, mô hình được huấn luyện trên toàn bộ tập dữ liệu huấn luyện
+- Sau mỗi epoch, mô hình được đánh giá trên tập validation
+- Mô hình có độ chính xác validation cao nhất được lưu lại
+- Tiến trình huấn luyện được hiển thị với thanh tiến độ sử dụng tqdm
+"""
+
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
